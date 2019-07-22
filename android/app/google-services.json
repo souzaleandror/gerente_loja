@@ -1,0 +1,83 @@
+{
+  "project_info": {
+    "project_number": "257212796509",
+    "firebase_url": "https://lojaflutter-4b1d5.firebaseio.com",
+    "project_id": "lojaflutter-4b1d5",
+    "storage_bucket": "lojaflutter-4b1d5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:257212796509:android:310ec915666a24de",
+        "android_client_info": {
+          "package_name": "gerenteloja.souzaleandror.com.br.gerente_loja"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "257212796509-a8j6go5lecvsukos7h9afg9lk77rumjv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB-GIZ4Fek-4lga8_nV-D-njxyuVzIMaWg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "257212796509-a8j6go5lecvsukos7h9afg9lk77rumjv.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "257212796509-8fd0p6sm3urucrcjva6uihqikdglj0k9.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "lojavirtual.lrs.com.br.lojaVirtual"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:257212796509:android:761880f4eb128c98",
+        "android_client_info": {
+          "package_name": "lojavirtual.lrs.com.br.loja_virtual"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "257212796509-a8j6go5lecvsukos7h9afg9lk77rumjv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB-GIZ4Fek-4lga8_nV-D-njxyuVzIMaWg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "257212796509-a8j6go5lecvsukos7h9afg9lk77rumjv.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "257212796509-8fd0p6sm3urucrcjva6uihqikdglj0k9.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "lojavirtual.lrs.com.br.lojaVirtual"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
