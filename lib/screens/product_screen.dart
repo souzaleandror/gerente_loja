@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:gerente_loja/blocs/product_bloc.dart';
 import 'package:gerente_loja/validators/product_validator.dart';
 import 'package:gerente_loja/widgets/images_widget.dart';
+import 'package:gerente_loja/widgets/product_size.dart';
 
 class ProductScreen extends StatefulWidget {
   final String categoryId;
@@ -37,11 +38,35 @@ class _ProductScreenState extends State<ProductScreen> with ProductValidator {
       backgroundColor: Colors.grey[850],
       appBar: AppBar(
         elevation: 0,
-        title: Text("Criar Produto"),
+        title: StreamBuilder<bool>(
+            initialData: false,
+            stream: _productBloc.outCreated,
+            builder: (context, snapshot) {
+              return Text(snapshot.data ? "Editar Produto" : "Criar Produto");
+            }),
         actions: <Widget>[
-          IconButton(
-            icon: Icon(Icons.remove),
-            onPressed: () {},
+          StreamBuilder<bool>(
+            stream: _productBloc.outCreated,
+            initialData: false,
+            builder: (context, snapshot) {
+              if (snapshot.data)
+                return StreamBuilder<bool>(
+                    stream: _productBloc.outLoading,
+                    initialData: false,
+                    builder: (context, snapshot) {
+                      return IconButton(
+                        icon: Icon(Icons.remove),
+                        onPressed: snapshot.data
+                            ? null
+                            : () {
+                                _productBloc.deleteProduct();
+                                Navigator.of(context).pop();
+                              },
+                      );
+                    });
+              else
+                return Container();
+            },
           ),
           StreamBuilder<bool>(
               stream: _productBloc.outLoading,
@@ -99,6 +124,20 @@ class _ProductScreenState extends State<ProductScreen> with ProductValidator {
                               TextInputType.numberWithOptions(decimal: true),
                           onSaved: _productBloc.savePrice,
                           validator: validatePrice,
+                        ),
+                        SizedBox(height: 16),
+                        Text(
+                          "Tamanhos",
+                          style: TextStyle(color: Colors.grey, fontSize: 12),
+                        ),
+                        ProductSize(
+                          context: context,
+                          initialValue: snapshot.data["sizes"],
+                          onSaved: _productBloc.saveSizes,
+                          validator: (s) {
+                            if (s.isEmpty)
+                              return "Deve ter pelo menos um tamanho";
+                          },
                         ),
                       ],
                     );

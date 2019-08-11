@@ -6,6 +6,7 @@ import 'package:gerente_loja/blocs/user_bloc.dart';
 import 'package:gerente_loja/tabs/orders_tab.dart';
 import 'package:gerente_loja/tabs/products_tab.dart';
 import 'package:gerente_loja/tabs/users_tab.dart';
+import 'package:gerente_loja/widgets/edit_category_dialog.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -122,12 +123,16 @@ class _HomeScreenState extends State<HomeScreen> {
           ],
         );
       case 2:
-        return SpeedDial(
-          child: Icon(Icons.edit),
+        return FloatingActionButton(
+          child: Icon(Icons.add),
           backgroundColor: Colors.pinkAccent,
-          overlayOpacity: 0.4,
-          overlayColor: Colors.black,
-          children: [],
+          onPressed: () {
+            showDialog(
+                context: context,
+                builder: (context) => EditCategoryDialog(
+                      category: null,
+                    ));
+          },
         );
     }
   }
